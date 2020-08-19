@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="login">Login: </label>
+        <input type="login" id="login" name="login"><br>
+        <label for="name">Nome: </label>
+        <input type="text" id="name" name="name"><br>
+        <label for="email">e-mail: </label>
+        <input type="email" id="email" name="email"><br>
+        <label for="senha">Senha: </label>
+        <input type="password" id="senha" name="senha"><br>
+        <label for="senha2">Confirme a Senha: </label>
+        <input type="password" id="senha2" name="senha2"><br>
+        <label for="idempresa">Empresa: </label>
+        <input type="number" id="idEmpresa" name="idEmpresa"><br><br>
+        <button type="button" onclick="authRequest()">Enviar</button>
+        <!-- <button type="submit" formaction="/Login.html">Voltar</button><br> -->
+    </div>
+    <p id="serverResponse">
+    </p>
+    <script src="auth.js">
+    </script>
+</body>
+</html>

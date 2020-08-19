@@ -1,0 +1,103 @@
+<html>
+
+<script>
+    function validateForm() {
+        var nome = document.forms["myForm"]["nome"].value;
+        var pontos = document.forms["myForm"]["pontos"].value;
+        var nota = document.forms["myForm"]["nota"].value;
+        var universidade = document.forms["myForm"]["universidade"].value;
+        var empresas = document.getElementsByName("empresas");
+        var empValid = false;
+        var i = 0;
+        // var hora = document.querySelector("hora").value;
+
+        if (nome == null || nome == "") {
+            alert('O campo "Nome" deve preenchido!');
+            return false;
+        }
+        else
+            if (pontos < 1 || pontos > 100) {
+                alert('O campo "Pontos" deve preenchido com valores entre 1 e 100!');
+                return false;
+            }
+            else
+                if (nota < 1 || nota > 10) {
+                    alert('O campo "Nota" deve preenchido com valores entre 1 e 10!');
+                    return false;
+                }
+                else
+                    if (universidade == null || universidade == "") {
+                        alert('O campo "Universidade" deve preenchido!');
+                        return false;
+                    }
+                    // else
+                    // if (hora.match(/\d+:\d+/)) {
+                    //     alert(hora + 'Favor digitar uma hora valida!');
+                    //     return false;
+                    // }
+                    else
+                        while (!empValid && i < empresas.length) {
+                            if (empresas[i].checked) empValid = true;
+                            i++;
+                        }
+        if (!empValid) {
+            alert("Favor escolher uma Empresa!");
+            return empValid;
+        }
+    }
+    function loadXMLDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "xmlhttp_info.txt", true);
+        xhttp.send();
+    }
+</script>
+
+<body>
+    <h1> Formulário do Curso (Agilizeware)</h1>
+    <form name="myForm" action="https://google.com" onsubmit="return validateForm()" method="post">
+        <b>Nome:</b><br>
+        <input type="text" name="nome" value=""><br><br>
+        <label for="ponts"><b>Pontos</b> (Entre 0 e 100)<b>:</b></label><br>
+        <input type="number" id="pontos" name="pontos" min="0" max="100"><br><br>
+        <label for="nota"><b>Nota</b> (Entre 0 e 10)<b>:</b></label><br>
+        <input type="number" id="nota" name="nota" min="0" max="10"><br><br>
+        <b>Universidade:</b><br>
+        <input type="text" name="universidade" value=""><br><br>
+        <b>Empresas:</b><br>
+        <input type="radio" id="empresa1" name="empresas" value="empresa1">
+        <label for="empresa1">Empresa 1</label><br>
+        <input type="radio" id="empresa2" name="empresas" value="empresa2">
+        <label for="empresa2">Empresa 2</label><br>
+        <input type="radio" id="empresa3" name="empresas" value="aempresa3">
+        <label for="empresa3">Empresa 3</label><br>
+        <input type="radio" id="empresa4" name="empresas" value="empresa4">
+        <label for="empresa4">Empresa 4</label><br><br>
+        <label for="avatars"><b>Escolha um avatar:</b></label><br>
+        <select id="avatars" name="avatars">
+            <option value="avatar1">Avatar 1</option>
+            <option value="avatar2">Avatar 2</option>
+            <option value="avatar3">Avatar 3</option>
+            <option value="avatar4">Avatar 4</option>
+            <option value="avatar5">Avatar 5</option>
+            <option value="avatar6">Avatar 6</option>
+            <option value="avatar7">Avatar 7</option>
+        </select><br><br>
+        <b>Horarios:</b><br>
+        <input type="time" name="horarios:" value=""><br><br><br><br>
+
+        <input type="submit" value="Submit"><br>
+
+        <div id="demo">
+            <button type="button" onclick="loadXMLDoc()">Teste</button>
+        </div>
+    </form>
+
+</body>
+
+</html>
