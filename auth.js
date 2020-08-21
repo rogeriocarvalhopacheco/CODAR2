@@ -47,7 +47,7 @@ function authRequest() {
         }
     };
 
-    xhttp.open("GET", "http://52.91.139.190/fsapi/auth/register-jwt", true);
+    xhttp.open("POST", "http://52.91.139.190/fsapi/users/auth/register-jwt", true);
    // xhttp.setRequestHeader("Authorization", "Bearer " + token);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send(JSON.stringify
@@ -61,7 +61,6 @@ function authRequest() {
         })
     );
     event.preventDefault();
-
 
 }
 
