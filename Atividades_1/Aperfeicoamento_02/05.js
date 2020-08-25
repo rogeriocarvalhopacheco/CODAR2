@@ -9,7 +9,7 @@ function mediaRequest() {
     var n4 = Number(array[4])
 
     if (n0 == null || n1 == null || n2 == null || n3 == null || n4 == null) {
-        texto = "É necessário digitar os 5 números!"
+        texto = "Favor digitar corretamente!"
     } else {
         var media = (n0 + n1 + n2 + n3 + n4) / 5
         texto = "A média dos números é " + media + "!"
